@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Trivia Game Html</title>
+    <!--Bootstrap core CSS-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="assets/css/triviastyle.css">
+    <script src="assets/javascript/app.js"></script>
+</head>
+
+<body>
+<!--Set up game page-->
+    
+    <script>
+        
+    var now = new Date();
+    var timeup = now.setSeconds(now.getSeconds() + 40);
+    //var timeup = now.setHours(now.getHours() + 1);
+    
+    var counter = setInterval(timer, 1000);
+    
+    function timer() {
+      now = new Date();
+      count = Math.round((timeup - now)/1000);
+      if (now > timeup) {
+          alert("Times expire, reset the game");
+          clearInterval(counter);
+          return;
+      }
+      var seconds = Math.floor((count%60));
+      var minutes = Math.floor((count/60) % 60);
+      document.getElementById("timer").innerHTML = minutes + ":" + seconds;
+    }
+    </script>
+
+    <div class="container">
+        <p></p>
+        <div class="jumbotron">
+            <h1>Totally Trivial Trivia!</h1>
+           <span>Time remaining in seconds: </span>
+           <p id="timer"></p>
+            <p>What are the official winter sport of Canada?</p>
+            <div class="btn-group1">
+                <input type="radio" name="btn1" value="Ice hockey">Ice hockey</button>
+                <input type="radio" name="btn1" value="Lacrosse">Lacrosse</button>
+                <input type="radio" name="btn1" value="Football">Football</button>
+                <input type="radio" name="btn1" value="Basketball">Basketball</button>
+            </div>
+            <br>
+            <br>
+            <p>What is the largest country located entirely in Europe?
+                <div class="btn-group2">
+                    <input type="radio" name="btn2" value="England">England</button>
+                    <input type="radio" name="btn2" value="Germany">Germany</button>
+                    <input type="radio" name="btn2" value="France">France</button>
+                    <input type="radio" name="btn2" value="Ukrane">Ukrane</button>
+                    </div>
+                <br>
+                <br>
+                <p>Jim Davis was the cartoonist behind which widely syndicated comic strip?</p>
+                <div class="btn-group3">
+                    <input type="radio" name="btn3" value="Bunny">Bunny</button>
+                    <input type="radio" name="btn3" value="Garfield">Garfield</button>
+                    <input type="radio" name="btn3" value="Piggy">Piggy</button>
+                    <input type="radio" name="btn3" value="Snoop dog">Snoop dog</button>
+                </div>
+                <br>
+                <br>
+                <p>What inland U.S. state has the longest shoreline?</p>
+                <div class="btn-group4">
+                    <input type="radio" name="btn4" value="Florida">Florida</button>
+                    <input type="radio" name="btn4" value="California">California</button>
+                    <input type="radio" name="btn4" value="Michigan">Michigan</button>
+                    <input type="radio" name="btn4" value="Texas">Texas</button>
+                </div>
+        </div>
+</body>
+
+
+</html>
